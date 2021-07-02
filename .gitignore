@@ -1,0 +1,13 @@
+.idea
+node_modules/
+
+dist/
+
+.netlify
+.env
+.env.staging
+
+yarn-error.log
+
+*.tar.gz
+production.tar.gz
