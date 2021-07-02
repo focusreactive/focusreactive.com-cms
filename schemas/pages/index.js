@@ -1,3 +1,4 @@
 import mainSchemas from './main';
+import landingSchemas from './landing';
 
-export default [...mainSchemas];
+export default [...mainSchemas, ...landingSchemas];
