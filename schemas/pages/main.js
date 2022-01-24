@@ -317,6 +317,74 @@ const emailForm = {
   ],
 };
 
+const techs = {
+  name: 'techs',
+  type: 'object',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'subTitle',
+      title: 'Subtitle',
+      type: 'string',
+    },
+    {
+      name: 'spheres',
+      title: 'Spheres',
+      type: 'array',
+      of: [{ type: 'sphere' }],
+    },
+  ],
+};
+
+const sphere = {
+  name: 'sphere',
+  type: 'object',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'list',
+      title: 'Technologies',
+      type: 'array',
+      of: [{ type: 'tech' }],
+    },
+  ],
+};
+
+const tech = {
+  name: 'tech',
+  type: 'object',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'url',
+    },
+    {
+      name: 'isPartner',
+      title: 'Partner',
+      type: 'boolean',
+    },
+    {
+      name: 'src',
+      title: 'Image',
+      type: 'image',
+    },
+  ],
+};
+
 export const mainPage = {
   name: 'mainPage',
   title: 'Main Page',
@@ -346,6 +414,11 @@ export const mainPage = {
       name: 'whatWeDo',
       title: 'What We Do Section',
       type: 'whatWeDo',
+    },
+    {
+      name: 'techs',
+      title: 'Technologies',
+      type: 'techs',
     },
     {
       name: 'events',
@@ -378,4 +451,7 @@ export default [
   link,
   membersRow,
   emailForm,
+  techs,
+  tech,
+  sphere,
 ];
