@@ -1,38 +1,3 @@
-const client = {
-  name: 'client',
-  type: 'object',
-  fields: [
-    {
-      name: 'logo',
-      title: 'Logo',
-      type: 'image',
-    },
-    {
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-    },
-  ],
-};
-
-const clients = {
-  name: 'clients',
-  type: 'object',
-  fields: [
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    },
-    {
-      name: 'clients',
-      title: 'Clients',
-      type: 'array',
-      of: [{ type: 'client' }],
-    },
-  ],
-};
-
 const product = {
   name: 'product',
   type: 'object',
@@ -373,11 +338,6 @@ export const mainPage = {
       of: [{ type: 'string' }],
     },
     {
-      name: 'clients',
-      title: 'Clients Slider',
-      type: 'clients',
-    },
-    {
       name: 'products',
       title: 'Products Preview Section',
       type: 'products',
@@ -406,8 +366,6 @@ export const mainPage = {
 };
 
 export default [
-  clients,
-  client,
   mainPage,
   products,
   product,

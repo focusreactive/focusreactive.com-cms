@@ -30,6 +30,11 @@ const heroDark = getBlock('heroDark', {
       title: 'Image',
       type: 'image',
     },
+    {
+      name: 'bgImage',
+      title: 'Background Image',
+      type: 'image',
+    },
   ],
 });
 
@@ -72,9 +77,19 @@ const heroPartner = getBlock('heroPartner', {
 const aboutText = getBlock('aboutText', {
   fields: [
     {
-      name: 'text',
-      title: 'Text',
+      name: 'title',
+      title: 'Title',
       type: 'string',
+    },
+    {
+      name: 'richText',
+      title: 'Text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
     },
   ],
 });
