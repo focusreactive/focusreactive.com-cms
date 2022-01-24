@@ -143,6 +143,11 @@ const seo = {
       type: 'string',
     },
     {
+      name: 'keyWords',
+      title: 'Key words',
+      type: 'string',
+    },
+    {
       name: 'ogTags',
       title: 'Open Graph Tags',
       type: 'og',
