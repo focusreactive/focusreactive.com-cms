@@ -435,6 +435,13 @@ export const mainPage = {
       title: 'Email Form Section',
       type: 'emailForm',
     },
+    {
+      name: 'footer',
+      title: 'Footer',
+      type: 'reference',
+      validation: (Rule) => Rule.required(),
+      to: [{ type: 'footer' }],
+    },
   ],
 };
 
