@@ -35,6 +35,11 @@ const heroDark = getBlock('heroDark', {
       title: 'Background Image',
       type: 'image',
     },
+    {
+      name: 'hint',
+      title: 'Hint',
+      type: 'string',
+    },
   ],
 });
 
