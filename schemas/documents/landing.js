@@ -26,6 +26,11 @@ const heroDark = getBlock('heroDark', {
       type: 'string',
     },
     {
+      name: 'colored',
+      title: 'Title has full-color style',
+      type: 'boolean',
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
