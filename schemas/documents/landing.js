@@ -354,6 +354,16 @@ const contentColumns = getBlock('contentColumns', {
       title: 'Image',
       type: 'image',
     },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'url',
+    },
+    {
+      name: 'linkTitle',
+      title: 'Link Title',
+      type: 'string',
+    },
   ],
 });
 
