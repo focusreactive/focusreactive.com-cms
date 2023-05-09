@@ -57,6 +57,17 @@ const hero = getBlock('hero', {
       of: [{ type: 'string' }],
     },
     {
+      name: 'isCustomFirstLineDisabled',
+      title: 'Custom first line styled disabled',
+      description: '(transparent && border)',
+      type: 'boolean',
+    },
+    {
+      name: 'titleColor',
+      title: 'Title Color',
+      type: 'string',
+    },
+    {
       name: 'image',
       title: 'Background Image',
       type: 'image',
