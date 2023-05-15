@@ -89,8 +89,8 @@ const post = {
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
-      media: 'author.picture',
+      author: 'author[0].name',
+      media: 'author[0].picture',
     },
     prepare(selection) {
       const { author } = selection;
