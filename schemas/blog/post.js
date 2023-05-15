@@ -90,7 +90,7 @@ const post = {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'coverImage',
+      media: 'author.picture',
     },
     prepare(selection) {
       const { author } = selection;
