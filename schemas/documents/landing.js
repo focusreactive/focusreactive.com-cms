@@ -217,6 +217,16 @@ const clientsAccordionItem = getBlock('clientsAccordionItem', {
       type: 'array',
       of: [{ type: 'string' }],
     },
+    {
+      name: 'linkTitle',
+      title: 'Link',
+      type: 'string',
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'string',
+    },
   ],
 });
 

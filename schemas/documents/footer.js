@@ -34,9 +34,9 @@ const footer = {
                       type: 'string',
                     },
                     {
-                      name: 'link',
+                      name: 'url',
                       title: 'Link',
-                      type: 'string',
+                      type: 'url',
                     },
                   ],
                 },
