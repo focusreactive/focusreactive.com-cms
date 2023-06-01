@@ -10,7 +10,7 @@ const workCategory = {
     },
     {
       name: 'descriptionTitle',
-      title: 'descriptionTitle',
+      title: 'Description Title',
       type: 'string',
     },
     {
@@ -18,6 +18,16 @@ const workCategory = {
       title: 'Description Elements',
       type: 'array',
       of: [{ type: 'string' }],
+    },
+    {
+      name: 'linkTitle',
+      title: 'Link Title',
+      type: 'string',
+    },
+    {
+      name: 'linkUrl',
+      title: 'Link Url',
+      type: 'string',
     },
   ],
 };
