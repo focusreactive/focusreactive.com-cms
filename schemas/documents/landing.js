@@ -123,6 +123,11 @@ const teasersItem = getBlock('teasersItem', {
       type: 'image',
     },
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
       name: 'text',
       title: 'Text',
       type: 'string',
