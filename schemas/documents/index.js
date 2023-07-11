@@ -3,6 +3,7 @@ import landingSchemas from './landing';
 import footer from './footer';
 import ourWork from './ourWork';
 import aboutUsPage from './aboutUs';
+import header from './header';
 
 export default [
   ...mainSchemas,
@@ -10,4 +11,5 @@ export default [
   ...ourWork,
   ...footer,
   ...aboutUsPage,
+  ...header,
 ];
