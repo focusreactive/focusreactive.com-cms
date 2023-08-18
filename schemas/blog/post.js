@@ -2,6 +2,7 @@ const post = {
   name: 'post',
   title: 'Blog Posts',
   type: 'document',
+  icon: () => '💾',
   fields: [
     {
       name: 'title',
@@ -89,11 +90,12 @@ const post = {
   preview: {
     select: {
       title: 'title',
-      author: 'authors[0].name',
+      authors: 'authors',
       media: 'heroImage',
     },
     prepare(selection) {
-      const { author } = selection;
+      const { authors } = selection;
+      const author = authors[0]._ref;
       return { ...selection, subtitle: author && `by ${author}` };
     },
   },
