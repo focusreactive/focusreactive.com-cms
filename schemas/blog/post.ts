@@ -2,7 +2,6 @@ const post = {
   name: 'post',
   title: 'Blog Posts',
   type: 'document',
-  icon: () => '💾',
   fields: [
     {
       name: 'title',

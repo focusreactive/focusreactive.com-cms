@@ -5,11 +5,4 @@ import ourWork from './ourWork';
 import aboutUsPage from './aboutUs';
 import header from './header';
 
-export default [
-  ...mainSchemas,
-  ...landingSchemas,
-  ...ourWork,
-  ...footer,
-  ...aboutUsPage,
-  ...header,
-];
+export default [...mainSchemas, ...landingSchemas, ...ourWork, ...footer, ...aboutUsPage, ...header];

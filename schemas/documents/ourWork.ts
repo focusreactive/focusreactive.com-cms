@@ -121,10 +121,4 @@ const ourWorkPage = {
   ],
 };
 
-export default [
-  ourWorkPage,
-  workCategory,
-  workCategoryBlock,
-  highlights,
-  highlightsItem,
-];
+export default [ourWorkPage, workCategory, workCategoryBlock, highlights, highlightsItem];

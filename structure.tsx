@@ -1,23 +1,29 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
-import S from '@sanity/desk-tool/structure-builder';
+import { DefaultDocumentNodeResolver } from 'sanity/desk';
+import { SanityDocument } from '@sanity/types';
 
 const sendPostMessage = () => {
-  document
-    .getElementById('preview_iframe')
-    .contentWindow.postMessage(
-      'reload()',
-      'https://fr-11ty-migration-front.vercel.app',
-    );
+  const iframe = document.getElementById('preview_iframe') as HTMLIFrameElement | null;
+
+  if (!iframe || !iframe.contentWindow) return null;
+
+  iframe.contentWindow.postMessage('reload()', 'https://fr-11ty-migration-front.vercel.app');
 };
 
-const JsonPreview = ({ document: sanityDocument }) => {
+const JsonPreview = ({
+  document: sanityDocument,
+}: {
+  document: {
+    draft: SanityDocument | null;
+    displayed: Partial<SanityDocument>;
+    historical: Partial<SanityDocument> | null;
+    published: SanityDocument | null;
+  };
+}) => {
   const [slugString, setSlugString] = useState('');
 
-  const debouncedChangeHandler = useCallback(
-    debounce(sendPostMessage, 1000),
-    [],
-  );
+  const debouncedChangeHandler = useCallback(debounce(sendPostMessage, 1000), []);
 
   useEffect(() => {
     if (debouncedChangeHandler) {
@@ -29,7 +35,8 @@ const JsonPreview = ({ document: sanityDocument }) => {
     switch (sanityDocument?.displayed?._type) {
       case 'landingPage': {
         setSlugString(
-          `landing-preview?slug=${sanityDocument.displayed?.path?.current}`,
+          // @ts-ignore
+          `landing-preview?slug=${sanityDocument.displayed?.path?.current}`
         );
         break;
       }
@@ -53,7 +60,6 @@ const JsonPreview = ({ document: sanityDocument }) => {
   }, []);
 
   return (
-    // eslint-disable-next-line react/jsx-filename-extension
     <iframe
       title="page"
       id="preview_iframe"
@@ -62,21 +68,12 @@ const JsonPreview = ({ document: sanityDocument }) => {
     />
   );
 };
-export const getDefaultDocumentNode = ({ schemaType }) => {
-  const documentsWithPreview = [
-    'landingPage',
-    'aboutUsPage',
-    'mainPage',
-    'ourWorkPage',
-  ];
+
+export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaType }) => {
+  const documentsWithPreview = ['landingPage', 'aboutUsPage', 'mainPage', 'ourWorkPage'];
 
   if (documentsWithPreview.includes(schemaType)) {
-    return S.document().views([
-      S.view.form(),
-      S.view.component(JsonPreview).title('Preview'),
-    ]);
+    return S.document().views([S.view.form(), S.view.component(JsonPreview).title('Preview')]);
   }
   return S.document();
 };
-
-export default S.defaults();

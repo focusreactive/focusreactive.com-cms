@@ -396,8 +396,7 @@ export const mainPage = {
       title: 'Hero Text Lines',
       type: 'array',
       of: [{ type: 'string' }],
-      validate: (Rule) =>
-        Rule.max(50).warning('No more than 5 words are allowed'),
+      validate: (Rule) => Rule.max(50).warning('No more than 5 words are allowed'),
     },
     {
       name: 'aboutTextLines',
