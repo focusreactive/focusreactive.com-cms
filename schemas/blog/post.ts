@@ -26,10 +26,9 @@ const post = {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'content',
+      name: 'contentMarkdown',
       title: 'Content',
-      type: 'array',
-      of: [{ type: 'markdown' }],
+      type: 'markdown',
       validation: (Rule) => Rule.required(),
     },
     {
