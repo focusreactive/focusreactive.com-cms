@@ -92,14 +92,16 @@ const post = {
       author1: 'authors.1.name',
       author2: 'authors.2.name',
       author3: 'authors.3.name',
+      media: 'heroImage',
     },
-    prepare: ({ title, author0, author1, author2, author3 }) => {
+    prepare: ({ title, author0, author1, author2, author3, media }) => {
       const authors = [author0, author1, author2].filter(Boolean);
       const subtitle = authors.length > 0 ? `by ${authors.join(', ')}` : '';
       const hasMoreAuthors = Boolean(author3);
       return {
         title,
         subtitle: hasMoreAuthors ? `${subtitle}…` : subtitle,
+        media
       };
     },
   },
