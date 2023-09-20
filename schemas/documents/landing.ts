@@ -115,8 +115,8 @@ const aboutText = getBlock('aboutText', {
           { title: 'Medium', value: 'medium' },
           { title: 'Large', value: 'large' },
         ],
-        layout: "radio",
-        direction: "horizontal"
+        layout: 'radio',
+        direction: 'horizontal',
       },
     },
     {
@@ -513,6 +513,7 @@ const landingPage = defineType({
         { type: 'contentColumns' },
         { type: 'technologies' },
         { type: 'heroContentSmall' },
+        { type: 'fullWidthImage' },
       ],
     },
     {
@@ -526,6 +527,26 @@ const landingPage = defineType({
       type: 'reference',
       validation: (Rule) => Rule.required(),
       to: [{ type: 'footer' }],
+    },
+  ],
+});
+
+const fullWidthImage = getBlock('fullWidthImage', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'colored',
+      title: 'Title has full-color style',
+      type: 'boolean',
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
     },
   ],
 });
@@ -552,4 +573,5 @@ export default [
   technologies,
   technologiesItem,
   heroContentSmall,
+  fullWidthImage,
 ];
