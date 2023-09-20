@@ -1,22 +1,25 @@
-const getBlock = (name, { fields, type }) => ({
-  name,
-  type: type || 'object',
-  fields: [
-    {
-      name: 'documentTitle',
-      title: 'Document Title',
-      description: 'visible only in CMS',
-      type: 'string',
+import { defineType, FieldDefinition } from 'sanity';
+
+const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
+  defineType({
+    name,
+    type: 'object',
+    fields: [
+      {
+        name: 'documentTitle',
+        title: 'Document Title',
+        description: 'visible only in CMS',
+        type: 'string',
+      },
+      ...fields,
+    ],
+    preview: {
+      select: { title: 'title', documentTitle: 'documentTitle' },
+      prepare({ title, documentTitle }) {
+        return { subtitle: name, title: documentTitle || title };
+      },
     },
-    ...fields,
-  ],
-  preview: {
-    select: { title: 'title', documentTitle: 'documentTitle' },
-    prepare({ title, documentTitle }) {
-      return { subtitle: name, title: documentTitle || title };
-    },
-  },
-});
+  });
 
 const heroDark = getBlock('heroDark', {
   fields: [
@@ -101,6 +104,20 @@ const aboutText = getBlock('aboutText', {
       name: 'title',
       title: 'Title',
       type: 'string',
+    },
+    {
+      name: 'textSize',
+      title: 'Text Size',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Small', value: 'small' },
+          { title: 'Medium', value: 'medium' },
+          { title: 'Large', value: 'large' },
+        ],
+        layout: "radio",
+        direction: "horizontal"
+      },
     },
     {
       name: 'richText',
@@ -444,7 +461,7 @@ const heroContentSmall = getBlock('heroContentSmall', {
   ],
 });
 
-const landingPage = {
+const landingPage = defineType({
   name: 'landingPage',
   type: 'document',
   fieldsets: [
@@ -511,7 +528,7 @@ const landingPage = {
       to: [{ type: 'footer' }],
     },
   ],
-};
+});
 
 export default [
   landingPage,
