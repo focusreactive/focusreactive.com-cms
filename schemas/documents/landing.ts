@@ -585,6 +585,11 @@ const fullWidthImage = getBlock('fullWidthImage', {
       title: 'Image',
       type: 'image',
     },
+    {
+      name: 'imageDescription',
+      title: 'Image Description',
+      type: 'string',
+    },
   ],
 });
 
