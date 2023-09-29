@@ -1,5 +1,20 @@
 import { defineType, FieldDefinition } from 'sanity';
 
+const textSizeControl = {
+  name: 'textSize',
+  title: 'Text Size',
+  type: 'string',
+  options: {
+    list: [
+      { title: 'Small', value: 'small' },
+      { title: 'Medium', value: 'medium' },
+      { title: 'Large', value: 'large' },
+    ],
+    layout: 'radio',
+    direction: 'horizontal',
+  },
+};
+
 const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
   defineType({
     name,
@@ -31,6 +46,11 @@ const heroDark = getBlock('heroDark', {
     {
       name: 'colored',
       title: 'Title has full-color style',
+      type: 'boolean',
+    },
+    {
+      name: 'titleShadow',
+      title: 'Title Shadow',
       type: 'boolean',
     },
     {
@@ -71,6 +91,25 @@ const hero = getBlock('hero', {
       type: 'string',
     },
     {
+      name: 'titlePosition',
+      title: 'Title Position',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Top', value: 'top' },
+          { title: 'Center', value: 'center' },
+          { title: 'Bottom', value: 'bottom' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+    },
+    {
+      name: 'titleShadow',
+      title: 'Title Shadow',
+      type: 'boolean',
+    },
+    {
       name: 'image',
       title: 'Background Image',
       type: 'image',
@@ -106,20 +145,6 @@ const aboutText = getBlock('aboutText', {
       type: 'string',
     },
     {
-      name: 'textSize',
-      title: 'Text Size',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Small', value: 'small' },
-          { title: 'Medium', value: 'medium' },
-          { title: 'Large', value: 'large' },
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-    },
-    {
       name: 'richText',
       title: 'Text',
       type: 'array',
@@ -129,6 +154,12 @@ const aboutText = getBlock('aboutText', {
         },
       ],
     },
+    {
+      name: 'hideListMarkers',
+      title: 'Hide List Markers',
+      type: 'boolean',
+    },
+    textSizeControl,
   ],
 });
 
@@ -386,6 +417,7 @@ const contentColumns = getBlock('contentColumns', {
       title: 'Title',
       type: 'string',
     },
+    textSizeControl,
     {
       name: 'paragraphs',
       title: 'Paragraphs',
@@ -540,13 +572,23 @@ const fullWidthImage = getBlock('fullWidthImage', {
     },
     {
       name: 'colored',
-      title: 'Title has full-color style',
+      title: 'Colored Title',
+      type: 'boolean',
+    },
+    {
+      name: 'titleShadow',
+      title: 'Title Shadow',
       type: 'boolean',
     },
     {
       name: 'image',
       title: 'Image',
       type: 'image',
+    },
+    {
+      name: 'imageDescription',
+      title: 'Image Description',
+      type: 'string',
     },
   ],
 });
