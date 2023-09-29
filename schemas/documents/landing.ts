@@ -91,6 +91,20 @@ const hero = getBlock('hero', {
       type: 'string',
     },
     {
+      name: 'titlePosition',
+      title: 'Title Position',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Top', value: 'top' },
+          { title: 'Center', value: 'center' },
+          { title: 'Bottom', value: 'bottom' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+    },
+    {
       name: 'titleShadow',
       title: 'Title Shadow',
       type: 'boolean',
