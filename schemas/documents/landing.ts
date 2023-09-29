@@ -130,7 +130,6 @@ const aboutText = getBlock('aboutText', {
       title: 'Title',
       type: 'string',
     },
-    textSizeControl,
     {
       name: 'richText',
       title: 'Text',
@@ -141,6 +140,12 @@ const aboutText = getBlock('aboutText', {
         },
       ],
     },
+    {
+      name: 'hideListMarkers',
+      title: 'Hide List Markers',
+      type: 'boolean',
+    },
+    textSizeControl,
   ],
 });
 
