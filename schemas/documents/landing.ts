@@ -34,6 +34,11 @@ const heroDark = getBlock('heroDark', {
       type: 'boolean',
     },
     {
+      name: 'titleShadow',
+      title: 'Title Shadow',
+      type: 'boolean',
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -69,6 +74,11 @@ const hero = getBlock('hero', {
       name: 'titleColor',
       title: 'Title Color',
       type: 'string',
+    },
+    {
+      name: 'titleShadow',
+      title: 'Title Shadow',
+      type: 'boolean',
     },
     {
       name: 'image',
