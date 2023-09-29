@@ -550,7 +550,12 @@ const fullWidthImage = getBlock('fullWidthImage', {
     },
     {
       name: 'colored',
-      title: 'Title has full-color style',
+      title: 'Colored Title',
+      type: 'boolean',
+    },
+    {
+      name: 'titleShadow',
+      title: 'Title Shadow',
       type: 'boolean',
     },
     {
