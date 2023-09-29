@@ -1,5 +1,20 @@
 import { defineType, FieldDefinition } from 'sanity';
 
+const textSizeControl = {
+  name: 'textSize',
+  title: 'Text Size',
+  type: 'string',
+  options: {
+    list: [
+      { title: 'Small', value: 'small' },
+      { title: 'Medium', value: 'medium' },
+      { title: 'Large', value: 'large' },
+    ],
+    layout: 'radio',
+    direction: 'horizontal',
+  },
+};
+
 const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
   defineType({
     name,
@@ -115,20 +130,7 @@ const aboutText = getBlock('aboutText', {
       title: 'Title',
       type: 'string',
     },
-    {
-      name: 'textSize',
-      title: 'Text Size',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Small', value: 'small' },
-          { title: 'Medium', value: 'medium' },
-          { title: 'Large', value: 'large' },
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-    },
+    textSizeControl,
     {
       name: 'richText',
       title: 'Text',
@@ -396,6 +398,7 @@ const contentColumns = getBlock('contentColumns', {
       title: 'Title',
       type: 'string',
     },
+    textSizeControl,
     {
       name: 'paragraphs',
       title: 'Paragraphs',
