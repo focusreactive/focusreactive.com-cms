@@ -30,7 +30,7 @@ const sectionConfig = {
   ],
 };
 
-const sectionGroupField = {
+const sectionConfigField = {
   name: 'sectionConfig',
   type: 'sectionConfig',
   group: 'sectionConfigGroup',
@@ -187,6 +187,7 @@ const aboutText = getBlock('aboutText', {
       type: 'boolean',
     },
     textSizeControl,
+    sectionConfigField,
   ],
 });
 
@@ -466,7 +467,7 @@ const contentColumns = getBlock('contentColumns', {
       title: 'Link Title',
       type: 'string',
     },
-    sectionGroupField,
+    sectionConfigField,
   ],
 });
 
@@ -518,6 +519,66 @@ const heroContentSmall = getBlock('heroContentSmall', {
       title: 'Description',
       type: 'string',
     },
+  ],
+});
+
+const fullWidthImage = getBlock('fullWidthImage', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'colored',
+      title: 'Colored Title',
+      type: 'boolean',
+    },
+    {
+      name: 'titleShadow',
+      title: 'Title Shadow',
+      type: 'boolean',
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+    },
+    {
+      name: 'imageDescription',
+      title: 'Image Description',
+      type: 'string',
+    },
+    sectionConfigField,
+  ],
+});
+
+const fullWidthVideo = getBlock('fullWidthVideo', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+    },
+    {
+      name: 'video',
+      title: 'Video',
+      type: 'file',
+      options: {
+        accept: 'video/mp4',
+      },
+    },
+    {
+      name: 'placeholder',
+      title: 'Placeholder',
+      type: 'image',
+    },
+    sectionConfigField,
   ],
 });
 
@@ -574,6 +635,7 @@ const landingPage = defineType({
         { type: 'technologies' },
         { type: 'heroContentSmall' },
         { type: 'fullWidthImage' },
+        { type: 'fullWidthVideo' },
       ],
     },
     {
@@ -587,36 +649,6 @@ const landingPage = defineType({
       type: 'reference',
       validation: (Rule) => Rule.required(),
       to: [{ type: 'footer' }],
-    },
-  ],
-});
-
-const fullWidthImage = getBlock('fullWidthImage', {
-  fields: [
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    },
-    {
-      name: 'colored',
-      title: 'Colored Title',
-      type: 'boolean',
-    },
-    {
-      name: 'titleShadow',
-      title: 'Title Shadow',
-      type: 'boolean',
-    },
-    {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-    },
-    {
-      name: 'imageDescription',
-      title: 'Image Description',
-      type: 'string',
     },
   ],
 });
@@ -645,4 +677,5 @@ export default [
   technologiesItem,
   heroContentSmall,
   fullWidthImage,
+  fullWidthVideo,
 ];
