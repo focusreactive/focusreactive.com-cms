@@ -15,10 +15,37 @@ const textSizeControl = {
   },
 };
 
+const sectionConfig = {
+  name: 'sectionConfig',
+  type: 'object',
+  fields: [
+    {
+      name: 'disableTopPadding',
+      type: 'boolean',
+    },
+    {
+      name: 'disableBottomPadding',
+      type: 'boolean',
+    },
+  ],
+};
+
+const sectionGroupField = {
+  name: 'sectionConfig',
+  type: 'sectionConfig',
+  group: 'sectionConfigGroup',
+};
+
 const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
   defineType({
     name,
     type: 'object',
+    groups: [
+      {
+        name: 'sectionConfigGroup',
+        title: 'Section Config',
+      },
+    ],
     fields: [
       {
         name: 'documentTitle',
@@ -439,6 +466,7 @@ const contentColumns = getBlock('contentColumns', {
       title: 'Link Title',
       type: 'string',
     },
+    sectionGroupField,
   ],
 });
 
@@ -595,6 +623,7 @@ const fullWidthImage = getBlock('fullWidthImage', {
 
 export default [
   landingPage,
+  sectionConfig,
   hero,
   heroDark,
   heroPartner,
