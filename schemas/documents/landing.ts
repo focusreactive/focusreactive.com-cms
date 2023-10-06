@@ -553,6 +553,35 @@ const fullWidthImage = getBlock('fullWidthImage', {
   ],
 });
 
+const fullWidthVideo = getBlock('fullWidthVideo', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+    },
+    {
+      name: 'video',
+      title: 'Video',
+      type: 'file',
+      options: {
+        accept: 'video/mp4',
+      },
+    },
+    {
+      name: 'placeholder',
+      title: 'Placeholder',
+      type: 'image',
+    },
+    sectionConfigField,
+  ],
+});
+
 const landingPage = defineType({
   name: 'landingPage',
   type: 'document',
@@ -606,6 +635,7 @@ const landingPage = defineType({
         { type: 'technologies' },
         { type: 'heroContentSmall' },
         { type: 'fullWidthImage' },
+        { type: 'fullWidthVideo' },
       ],
     },
     {
@@ -647,4 +677,5 @@ export default [
   technologiesItem,
   heroContentSmall,
   fullWidthImage,
+  fullWidthVideo,
 ];
