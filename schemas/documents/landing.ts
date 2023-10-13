@@ -456,6 +456,15 @@ const contentColumns = getBlock('contentColumns', {
       name: 'image',
       title: 'Image',
       type: 'image',
+      description: "If 'video' is set, image will be used as a poster",
+    },
+    {
+      name: 'video',
+      title: 'Video',
+      type: 'file',
+      options: {
+        accept: 'video/mp4',
+      },
     },
     {
       name: 'link',
