@@ -511,6 +511,52 @@ const technologies = getBlock('technologies', {
   ],
 });
 
+const techStackItem = getBlock('techStackItem', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'url',
+    },
+  ],
+});
+
+const techStack = getBlock('techStack', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'items',
+      title: 'Technologies',
+      type: 'array',
+      of: [{ type: 'techStackItem' }],
+      validation: (rule) => rule.required(),
+    },
+  ],
+});
+
 const heroContentSmall = getBlock('heroContentSmall', {
   fields: [
     {
@@ -642,6 +688,7 @@ const landingPage = defineType({
         { type: 'singleReview' },
         { type: 'contentColumns' },
         { type: 'technologies' },
+        { type: 'techStack' },
         { type: 'heroContentSmall' },
         { type: 'fullWidthImage' },
         { type: 'fullWidthVideo' },
@@ -684,6 +731,8 @@ export default [
   contentColumns,
   technologies,
   technologiesItem,
+  techStack,
+  techStackItem,
   heroContentSmall,
   fullWidthImage,
   fullWidthVideo,
