@@ -69,6 +69,51 @@ const whatWeDoItem = {
   ],
 };
 
+const ourClients = {
+  name: 'ourClients',
+  type: 'object',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'items',
+      title: 'Items',
+      type: 'array',
+      of: [{ type: 'ourClientsItem' }],
+    },
+  ],
+};
+
+const ourClientsItem = {
+  name: 'ourClientsItem',
+  type: 'object',
+  fields: [
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+    },
+    {
+      name: 'alt',
+      title: 'Image Alternative Text',
+      type: 'string',
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'string',
+    },
+    {
+      name: 'openInNewTab',
+      title: 'Open link in new tab',
+      type: 'boolean',
+    },
+  ],
+};
+
 const whatWeDo = {
   name: 'whatWeDo',
   type: 'object',
@@ -410,6 +455,11 @@ export const mainPage = {
       type: 'products',
     },
     {
+      name: 'ourClients',
+      title: 'Our Clients Section',
+      type: 'ourClients',
+    },
+    {
       name: 'whatWeDo',
       title: 'What We Do Section',
       type: 'whatWeDo',
@@ -448,6 +498,8 @@ export default [
   mainPage,
   products,
   product,
+  ourClients,
+  ourClientsItem,
   whatWeDo,
   whatWeDoItem,
   events,
