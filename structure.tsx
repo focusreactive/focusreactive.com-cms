@@ -36,7 +36,7 @@ const JsonPreview = ({
       case 'landingPage': {
         setSlugString(
           // @ts-ignore
-          `landing-preview?slug=${sanityDocument.displayed?.path?.current}`
+          `landing-preview?slug=${sanityDocument.displayed?.path?.current}`,
         );
         break;
       }

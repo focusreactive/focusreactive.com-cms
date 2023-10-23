@@ -9,9 +9,7 @@ const client = getCliClient({
 });
 
 const fetchDocuments = () =>
-  client.fetch(
-    `*[_type == 'post' && defined(content)] { _id, _rev, title, content, contentMarkdown }`,
-  );
+  client.fetch(`*[_type == 'post' && defined(content)] { _id, _rev, title, content, contentMarkdown }`);
 
 const buildPatches = (docs) =>
   docs.map((doc) => ({
@@ -26,10 +24,7 @@ const buildPatches = (docs) =>
   }));
 
 const createTransaction = (patches) =>
-  patches.reduce(
-    (tx, patch) => tx.patch(patch.id, patch.patch),
-    client.transaction(),
-  );
+  patches.reduce((tx, patch) => tx.patch(patch.id, patch.patch), client.transaction());
 
 const commitTransaction = (tx) => tx.commit();
 
