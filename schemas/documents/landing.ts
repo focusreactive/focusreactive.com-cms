@@ -187,6 +187,19 @@ const aboutText = getBlock('aboutText', {
       type: 'boolean',
     },
     textSizeControl,
+    {
+      name: 'position',
+      title: 'Text Position',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Left', value: 'left' },
+          { title: 'Center', value: 'center' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+    },
     sectionConfigField,
   ],
 });
