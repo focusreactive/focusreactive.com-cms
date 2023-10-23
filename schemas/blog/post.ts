@@ -101,7 +101,7 @@ const post = {
       return {
         title,
         subtitle: hasMoreAuthors ? `${subtitle}…` : subtitle,
-        media
+        media,
       };
     },
   },
