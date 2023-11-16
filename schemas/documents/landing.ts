@@ -650,6 +650,15 @@ const fullWidthVideo = getBlock('fullWidthVideo', {
   ],
 });
 
+const chartCms = getBlock('chartCms', {
+  fields: [],
+});
+
+const chartECommerce = getBlock('chartECommerce', {
+  fields: [],
+});
+
+
 const landingPage = defineType({
   name: 'landingPage',
   type: 'document',
@@ -722,6 +731,8 @@ const landingPage = defineType({
   ],
 });
 
+
+
 export default [
   landingPage,
   sectionConfig,
@@ -749,4 +760,6 @@ export default [
   heroContentSmall,
   fullWidthImage,
   fullWidthVideo,
+  chartCms,
+  chartECommerce,
 ];
