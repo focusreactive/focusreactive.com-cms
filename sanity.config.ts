@@ -4,13 +4,14 @@ import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './schemas';
 import { markdownSchema } from 'sanity-plugin-markdown';
 import { defaultDocumentNode } from './structure';
+import { Logo } from './components/Logo';
 
 export default defineConfig({
   name: 'fr-website',
   title: 'FR Website',
 
   projectId: 'vftxng62',
-  dataset: 'production',
+  dataset: 'staging',
 
   plugins: [
     deskTool({
@@ -24,5 +25,11 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
+  },
+
+  studio: {
+    components: {
+      logo: Logo,
+    },
   },
 });
