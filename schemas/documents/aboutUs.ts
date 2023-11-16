@@ -1,3 +1,5 @@
+import { textSizeControl } from '../common';
+
 const aboutUsPage = {
   name: 'aboutUsPage',
   title: 'About Us Page',
@@ -18,8 +20,16 @@ const aboutUsPage = {
     {
       name: 'introDescription',
       title: 'Intro Description',
-      type: 'array',
-      of: [{ type: 'string' }],
+      type: 'object',
+      fields: [
+        {
+          name: 'text',
+          title: 'Text',
+          type: 'array',
+          of: [{ type: 'block' }],
+        },
+        textSizeControl,
+      ],
     },
   ],
 };
