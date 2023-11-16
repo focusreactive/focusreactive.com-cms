@@ -1,19 +1,5 @@
 import { defineType, FieldDefinition } from 'sanity';
-
-const textSizeControl = {
-  name: 'textSize',
-  title: 'Text Size',
-  type: 'string',
-  options: {
-    list: [
-      { title: 'Small', value: 'small' },
-      { title: 'Medium', value: 'medium' },
-      { title: 'Large', value: 'large' },
-    ],
-    layout: 'radio',
-    direction: 'horizontal',
-  },
-};
+import { textSizeControl } from '../common';
 
 const sectionConfig = {
   name: 'sectionConfig',
