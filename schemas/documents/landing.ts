@@ -658,7 +658,6 @@ const chartECommerce = getBlock('chartECommerce', {
   fields: [],
 });
 
-
 const landingPage = defineType({
   name: 'landingPage',
   type: 'document',
@@ -714,6 +713,8 @@ const landingPage = defineType({
         { type: 'heroContentSmall' },
         { type: 'fullWidthImage' },
         { type: 'fullWidthVideo' },
+        { type: 'chartCms' },
+        { type: 'chartECommerce' },
       ],
     },
     {
@@ -730,8 +731,6 @@ const landingPage = defineType({
     },
   ],
 });
-
-
 
 export default [
   landingPage,
