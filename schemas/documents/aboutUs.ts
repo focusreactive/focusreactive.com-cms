@@ -31,6 +31,11 @@ const aboutUsPage = {
         textSizeControl,
       ],
     },
+    {
+      name: 'emailForm',
+      title: 'Email Form Section',
+      type: 'emailForm',
+    },
   ],
 };
 
