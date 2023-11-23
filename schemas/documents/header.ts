@@ -1,3 +1,36 @@
+const serviceDropdown = {
+  name: 'service',
+  type: 'object',
+  title: 'Service',
+  fields: [
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'text',
+      type: 'text',
+      title: 'Text',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'link',
+      type: 'string',
+      title: 'Link',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'logo',
+      type: 'array',
+      title: 'Logo',
+      of: [{ type: 'serviceLogo' }],
+      validation: (Rule) => Rule.required(),
+    },
+  ],
+};
+
 const service = {
   name: 'service',
   type: 'object',
@@ -27,6 +60,12 @@ const service = {
       title: 'Logo',
       of: [{ type: 'serviceLogo' }],
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'dropdown',
+      type: 'array',
+      title: 'Dropdown',
+      of: [{ type: 'serviceDropdown' }],
     },
   ],
 };
@@ -116,4 +155,4 @@ const header = {
   },
 };
 
-export default [header, service, serviceLogo, menuItem];
+export default [header, service, serviceLogo, menuItem, serviceDropdown];
