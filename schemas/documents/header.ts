@@ -1,7 +1,7 @@
 const serviceDropdown = {
-  name: 'service',
+  name: 'serviceDropdown',
   type: 'object',
-  title: 'Service',
+  title: 'ServiceDropdown',
   fields: [
     {
       name: 'title',
