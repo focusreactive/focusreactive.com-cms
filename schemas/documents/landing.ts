@@ -650,9 +650,7 @@ const chartECommerce = getBlock('chartECommerce', {
   fields: [],
 });
 
-const teamV2Member = {
-  name: 'teamV2Member',
-  type: 'object',
+const teamV2Member = getBlock('teamV2Member', {
   fields: [
     {
       name: 'name',
@@ -671,11 +669,9 @@ const teamV2Member = {
       of: [{ type: 'string' }],
     },
   ],
-};
+});
 
-const teamV2 = {
-  name: 'teamV2',
-  type: 'object',
+const teamV2 = getBlock('teamV2', {
   fields: [
     {
       name: 'title',
@@ -688,8 +684,30 @@ const teamV2 = {
       type: 'array',
       of: [{ type: 'teamV2Member' }],
     },
+    sectionConfigField,
   ],
-};
+});
+
+const introList = getBlock('introList', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'richText',
+      title: 'Text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
+    sectionConfigField,
+  ],
+});
 
 const landingPage = defineType({
   name: 'landingPage',
@@ -749,6 +767,7 @@ const landingPage = defineType({
         { type: 'chartCms' },
         { type: 'chartECommerce' },
         { type: 'teamV2' },
+        { type: 'introList' },
       ],
     },
     {
@@ -797,4 +816,5 @@ export default [
   chartECommerce,
   teamV2,
   teamV2Member,
+  introList,
 ];
