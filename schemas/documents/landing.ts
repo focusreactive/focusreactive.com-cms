@@ -637,12 +637,65 @@ const fullWidthVideo = getBlock('fullWidthVideo', {
 });
 
 const chartCms = getBlock('chartCms', {
-  fields: [],
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+  ],
 });
 
 const chartECommerce = getBlock('chartECommerce', {
   fields: [],
 });
+
+const teamV2Member = {
+  name: 'teamV2Member',
+  type: 'object',
+  fields: [
+    {
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+    },
+    {
+      name: 'avatar',
+      title: 'Avatar',
+      type: 'image',
+    },
+    {
+      name: 'keyWords',
+      title: 'Key Words',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'links',
+      title: 'Links',
+      type: 'array',
+      of: [{ type: 'link' }],
+    },
+  ],
+};
+
+const teamV2 = {
+  name: 'teamV2',
+  type: 'object',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'members',
+      title: 'Members',
+      type: 'array',
+      of: [{ type: 'teamV2Member' }],
+    },
+  ],
+};
 
 const landingPage = defineType({
   name: 'landingPage',
@@ -701,6 +754,7 @@ const landingPage = defineType({
         { type: 'fullWidthVideo' },
         { type: 'chartCms' },
         { type: 'chartECommerce' },
+        { type: 'teamV2' },
       ],
     },
     {
@@ -747,4 +801,6 @@ export default [
   fullWidthVideo,
   chartCms,
   chartECommerce,
+  teamV2,
+  teamV2Member,
 ];
