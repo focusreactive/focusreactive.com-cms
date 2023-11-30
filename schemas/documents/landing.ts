@@ -670,12 +670,6 @@ const teamV2Member = {
       type: 'array',
       of: [{ type: 'string' }],
     },
-    {
-      name: 'links',
-      title: 'Links',
-      type: 'array',
-      of: [{ type: 'link' }],
-    },
   ],
 };
 
