@@ -668,6 +668,11 @@ const teamV2Member = getBlock('teamV2Member', {
       type: 'array',
       of: [{ type: 'string' }],
     },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'url',
+    },
   ],
 });
 
