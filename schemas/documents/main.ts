@@ -1,3 +1,5 @@
+import { defineType } from 'sanity';
+
 const product = {
   name: 'product',
   type: 'object',
@@ -435,12 +437,28 @@ const tech = {
   ],
 };
 
-export const mainPage = {
+export const mainPage = defineType({
   name: 'mainPage',
   title: 'Main Page',
   type: 'document',
   preview: { prepare: () => ({ title: 'Home Page' }) },
+  fieldsets: [
+    {
+      name: 'seo',
+      title: 'Page SEO Settings',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+  ],
   fields: [
+    {
+      fieldset: 'seo',
+      name: 'seo',
+      title: 'SEO & Metatags',
+      type: 'seo',
+    },
     {
       name: 'heroLines',
       title: 'Hero Text Lines',
@@ -497,7 +515,7 @@ export const mainPage = {
       to: [{ type: 'footer' }],
     },
   ],
-};
+});
 
 export default [
   mainPage,
