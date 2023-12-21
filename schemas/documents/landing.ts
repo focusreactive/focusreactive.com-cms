@@ -150,6 +150,69 @@ const heroPartner = getBlock('heroPartner', {
   ],
 });
 
+const heroCaseStudy = getBlock('heroCaseStudy', {
+  fields: [
+    {
+      name: 'titleLines',
+      title: 'Title Lines',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'isCustomFirstLineDisabled',
+      title: 'Custom first line styled disabled',
+      description: '(transparent && border)',
+      type: 'boolean',
+    },
+    {
+      name: 'titleColor',
+      title: 'Title Color',
+      type: 'string',
+    },
+    {
+      name: 'titleShadow',
+      title: 'Title Shadow',
+      type: 'boolean',
+    },
+    {
+      name: 'image',
+      title: 'Background Image',
+      type: 'image',
+    },
+    {
+      name: 'projectDetailsLogo',
+      title: 'Project Logo',
+      type: 'image',
+    },
+    {
+      name: 'projectDetailsList',
+      title: 'Project Details',
+      type: 'array',
+      of: [{ type: 'projectDetailsList' }],
+    },
+  ],
+});
+
+const projectDetailsList = getBlock('projectDetailsList', {
+  fields: [
+    {
+      name: 'title',
+      title: 'title',
+      type: 'string',
+    },
+    {
+      name: 'link',
+      title: 'link',
+      type: 'string',
+    },
+    {
+      name: 'projectDetailsListItem',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+  ],
+});
+
 const aboutText = getBlock('aboutText', {
   fields: [
     {
@@ -755,6 +818,7 @@ const landingPage = defineType({
       of: [
         { type: 'hero' },
         { type: 'heroDark' },
+        { type: 'heroCaseStudy' },
         { type: 'aboutText' },
         { type: 'teasers' },
         { type: 'reviews' },
@@ -795,6 +859,7 @@ export default [
   sectionConfig,
   hero,
   heroDark,
+  heroCaseStudy,
   heroPartner,
   aboutText,
   teasers,
@@ -822,4 +887,5 @@ export default [
   teamV2,
   teamV2Member,
   introList,
+  projectDetailsList,
 ];
