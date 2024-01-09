@@ -777,6 +777,44 @@ const introList = getBlock('introList', {
   ],
 });
 
+const faqItem = getBlock('faqItem', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'richText',
+      title: 'Text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
+    sectionConfigField,
+  ],
+});
+
+const faq = getBlock('faq', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'items',
+      title: 'faq',
+      type: 'array',
+      of: [{ type: 'faqItem' }],
+    },
+    sectionConfigField,
+  ],
+});
+
 const landingPage = defineType({
   name: 'landingPage',
   type: 'document',
@@ -837,6 +875,7 @@ const landingPage = defineType({
         { type: 'chartECommerce' },
         { type: 'teamV2' },
         { type: 'introList' },
+        { type: 'faq' },
       ],
     },
     {
@@ -888,4 +927,6 @@ export default [
   teamV2Member,
   introList,
   projectDetailsList,
+  faq,
+  faqItem,
 ];
