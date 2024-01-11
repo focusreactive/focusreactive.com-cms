@@ -1,10 +1,9 @@
 import { defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
+import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './schemas';
 import { markdownSchema } from 'sanity-plugin-markdown';
 import { defaultDocumentNode } from './structure';
-import { Logo } from './components/Logo';
 import { media } from 'sanity-plugin-media';
 
 export default defineConfig({
@@ -15,7 +14,7 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
-    deskTool({
+    structureTool({
       defaultDocumentNode,
     }),
     visionTool({
@@ -27,11 +26,5 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
-  },
-
-  studio: {
-    components: {
-      logo: Logo,
-    },
   },
 });

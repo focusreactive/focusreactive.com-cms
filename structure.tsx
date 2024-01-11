@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
-import { DefaultDocumentNodeResolver } from 'sanity/desk';
+import { DefaultDocumentNodeResolver } from 'sanity/structure';
 import { SanityDocument } from '@sanity/types';
 
 const sendPostMessage = () => {
