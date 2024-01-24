@@ -366,6 +366,11 @@ const emailForm = {
       type: 'array',
       of: [{ type: 'string' }],
     },
+    {
+      name: 'subtitle',
+      title: 'SubTitle',
+      type: 'string',
+    },
   ],
 };
 
