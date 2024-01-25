@@ -84,6 +84,12 @@ const post = {
         },
       ],
     },
+    {
+      name: 'isReadyForPreview',
+      title: 'Ready for Preview',
+      type: 'boolean',
+      description: 'Turn this on when the post has all required fields filled',
+    },
   ],
   preview: {
     select: {
