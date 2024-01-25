@@ -10,6 +10,7 @@
     "deploy-graphql": "sanity graphql deploy"
   },
   "dependencies": {
+    "@sanity/icons": "^2.8.0",
     "@sanity/vision": "^3.18.1",
     "easymde": "2",
     "lodash.debounce": "^4.0.8",
