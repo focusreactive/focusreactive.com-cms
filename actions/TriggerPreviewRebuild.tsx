@@ -12,7 +12,7 @@ export const RebuildPreview: DocumentActionComponent = (props) => {
   const defaultConfirmMessage = 'Are you sure you want to rebuild preview?';
   const [confirmMessage, setConfirmMessage] = React.useState(defaultConfirmMessage);
 
-  if (Object.values(env).some((v) => !v) || !props.draft || props.type !== 'post') {
+  if (Object.values(env).some((v) => !v) || !props.draft || props.type !== 'post' || !props.draft.isReadyForPreview) {
     return null;
   }
 
