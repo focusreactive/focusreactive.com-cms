@@ -6,6 +6,7 @@ import { markdownSchema } from 'sanity-plugin-markdown';
 import { defaultDocumentNode } from './structure';
 import { Logo } from './components/Logo';
 import { media } from 'sanity-plugin-media';
+import { RebuildPreview } from './actions/TriggerPreviewRebuild';
 
 export default defineConfig({
   name: 'fr-website',
@@ -33,5 +34,9 @@ export default defineConfig({
     components: {
       logo: Logo,
     },
+  },
+
+  document: {
+    actions: [RebuildPreview],
   },
 });
