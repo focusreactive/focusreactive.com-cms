@@ -1,3 +1,5 @@
+import { BarChartIcon } from '@sanity/icons';
+
 const workCategory = {
   name: 'workCategory',
   type: 'object',
@@ -83,6 +85,10 @@ const ourWorkPage = {
   name: 'ourWorkPage',
   title: 'Our Work Page',
   type: 'document',
+  icon: BarChartIcon,
+  options: {
+    singleton: true,
+  },
   preview: { prepare: () => ({ title: 'Our Work' }) },
   fields: [
     {

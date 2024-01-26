@@ -1,7 +1,10 @@
+import {BillIcon} from '@sanity/icons'
+
 const post = {
   name: 'post',
   title: 'Blog Posts',
   type: 'document',
+  icon: BillIcon,
   fields: [
     {
       name: 'title',

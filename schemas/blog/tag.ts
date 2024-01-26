@@ -1,3 +1,5 @@
+import { CodeIcon } from '@sanity/icons';
+
 // import sanityClient from '@sanity/client';
 //
 // const client = sanityClient({
@@ -12,6 +14,7 @@ const tag = {
   name: 'tag',
   title: 'Tag',
   type: 'document',
+  icon: CodeIcon,
   fields: [
     {
       name: 'label',
