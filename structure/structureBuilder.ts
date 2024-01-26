@@ -54,6 +54,24 @@ const sections: Sections = {
   },
 };
 
+const buildBlogType: BuildDocumentType = async (S, context, typeSchema) => {
+  return S.listItem()
+    .id(typeSchema.name)
+    .title('Articles')
+    .schemaType(typeSchema.name)
+    .child(
+      S.documentList()
+        .id(typeSchema.name)
+        .title('Articles')
+        .schemaType(typeSchema.name)
+        .apiVersion(apiVersion)
+        // .filter("_type == 'post'&& $user in authors[]._ref")
+        .filter("_type == 'post'")
+        .params({ user: context.currentUser?.id }),
+    );
+  // .child(S.list().id(typeSchema.name).title('Articles').items());
+};
+
 const buildDocumentType: BuildDocumentType = async (S, context, typeSchema) => {
   if (typeSchema.options?.singleton) {
     const client = context.getClient({ apiVersion });
@@ -68,6 +86,9 @@ const buildDocumentType: BuildDocumentType = async (S, context, typeSchema) => {
     //   return undefined;
     // }
     return S.documentListItem().id(documents[0]._id).title(typeSchema.title).schemaType(typeSchema.name);
+  }
+  if (typeSchema.name === 'post') {
+    return buildBlogType(S, context, typeSchema);
   }
   return S.documentTypeListItem(typeSchema.name);
 };
@@ -99,7 +120,7 @@ export const structure: StructureResolver = (S, context) => {
     .map((tp) => tp.name);
 
   sections.settings.types = settingsTypes!;
-  console.log('🚀 ~ documentTypes:', documentTypes);
+  // console.log('🚀 ~ documentTypes:', documentTypes);
 
   return S.list()
     .id('fr')
