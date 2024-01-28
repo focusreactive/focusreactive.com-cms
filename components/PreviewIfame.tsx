@@ -4,6 +4,8 @@ import debounce from 'lodash.debounce';
 import { Box, Button, Card, Flex, Spinner, Text, ThemeProvider } from '@sanity/ui';
 import { UserViewComponent } from 'sanity/desk';
 import { LaunchIcon, RefreshIcon } from '@sanity/icons';
+import { useHasActiveDeployments } from '../integrations/hooks/vercel';
+import styled from 'styled-components';
 
 const PRODUCTION_URL = 'https://focusreactive.com';
 const MAIN_PREVIEW_URL = 'https://fr-11ty-migration-front.vercel.app';
@@ -57,10 +59,22 @@ const getProductionUrl = (document: Partial<SanityDocument>) => {
   return `${PRODUCTION_URL}/${slug}`;
 };
 
+const BuildingStatus = styled.div`
+  font-size: 12px;
+  padding: 4px 16px;
+  border: 1px solid black;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+`;
+
 export const PreviewIframe: UserViewComponent = ({ document }) => {
   const iframe = useRef<HTMLIFrameElement>(null);
   const [previewUrl, setPreviewUrl] = useState('');
   const [id, setId] = useState(1);
+  const { hasActiveDeployments } = useHasActiveDeployments();
 
   const { displayed: currentDocument } = document;
 
@@ -99,7 +113,14 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
                 {previewUrl}
               </Text>
             </Box>
+
             <Flex align="center" gap={1}>
+              {hasActiveDeployments && (
+                <BuildingStatus>
+                  <Spinner muted /> Building...
+                </BuildingStatus>
+              )}
+
               <Button fontSize={[1]} icon={RefreshIcon} padding={2} text="Reload" onClick={reloadIframe} />
 
               <Button
@@ -122,6 +143,7 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
             </Flex>
           </Flex>
         </Card>
+
         <Card tone="transparent" padding={0} style={{ height: `100%` }}>
           <Flex align="center" justify="center" style={{ height: `100%` }}>
             <iframe

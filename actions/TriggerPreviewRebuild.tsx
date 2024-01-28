@@ -2,7 +2,12 @@ import React from 'react';
 import { DocumentActionComponent } from 'sanity';
 import { RefreshIcon } from '@sanity/icons';
 import { useToast } from '@sanity/ui';
-import { cancelDeployments, env, getActiveDeployments, rebuildPreview } from '../integrations/vercel';
+import {
+  cancelDeployments,
+  getActiveDeployments,
+  getIsVercelIntegrationEnabled,
+  rebuildPreview,
+} from '../integrations/vercel';
 
 // Sanity action that uses vercel webhook to trigger rebuild
 export const RebuildPreview: DocumentActionComponent = (props) => {
@@ -12,7 +17,7 @@ export const RebuildPreview: DocumentActionComponent = (props) => {
   const defaultConfirmMessage = 'Are you sure you want to rebuild preview?';
   const [confirmMessage, setConfirmMessage] = React.useState(defaultConfirmMessage);
 
-  if (Object.values(env).some((v) => !v) || !props.draft || props.type !== 'post' || !props.draft.isReadyForPreview) {
+  if (!getIsVercelIntegrationEnabled() || !props.draft || props.type !== 'post' || !props.draft.isReadyForPreview) {
     return null;
   }
 
