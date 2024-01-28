@@ -5,6 +5,7 @@ import { Box, Button, Card, Flex, Spinner, Text, ThemeProvider } from '@sanity/u
 import { UserViewComponent } from 'sanity/desk';
 import { LaunchIcon, RefreshIcon } from '@sanity/icons';
 
+const PRODUCTION_URL = 'https://focusreactive.com';
 const MAIN_PREVIEW_URL = 'https://fr-11ty-migration-front.vercel.app';
 const BLOG_PREVIEW_URL = 'https://focusreactivecom-blog-preview.vercel.app';
 
@@ -51,6 +52,11 @@ const getBlogPagePreviewUrl = (document: Partial<SanityDocument>) => {
   return `${BLOG_PREVIEW_URL}/${slug}`;
 };
 
+const getProductionUrl = (document: Partial<SanityDocument>) => {
+  const slug = document?.slug?.current || document?.path?.current;
+  return `${PRODUCTION_URL}/${slug}`;
+};
+
 export const PreviewIframe: UserViewComponent = ({ document }) => {
   const iframe = useRef<HTMLIFrameElement>(null);
   const [previewUrl, setPreviewUrl] = useState('');
@@ -89,20 +95,12 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
         <Card paddingX={4} paddingY={3} borderBottom>
           <Flex align="center" gap={2}>
             <Box flex={1}>
-              <Text size={1} textOverflow="ellipsis" >
+              <Text size={1} textOverflow="ellipsis">
                 {previewUrl}
               </Text>
             </Box>
             <Flex align="center" gap={1}>
-              <Button
-                fontSize={[1]}
-                padding={2}
-                icon={RefreshIcon}
-                title="Reload"
-                text="Reload"
-                aria-label="Reload"
-                onClick={reloadIframe}
-              />
+              <Button fontSize={[1]} icon={RefreshIcon} padding={2} text="Reload" onClick={reloadIframe} />
 
               <Button
                 fontSize={[1]}
@@ -111,6 +109,15 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
                 text="Open"
                 tone="primary"
                 onClick={() => window.open(previewUrl)}
+              />
+
+              <Button
+                fontSize={[1]}
+                icon={LaunchIcon}
+                padding={[2]}
+                text="Open FR"
+                tone="caution"
+                onClick={() => window.open(getProductionUrl(currentDocument))}
               />
             </Flex>
           </Flex>
