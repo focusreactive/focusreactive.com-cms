@@ -3,9 +3,10 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import debounce from 'lodash.debounce';
 import { Box, Button, Card, Flex, Spinner, Text, ThemeProvider } from '@sanity/ui';
 import { UserViewComponent } from 'sanity/desk';
-import { LaunchIcon, RefreshIcon } from '@sanity/icons';
+import { EarthGlobeIcon, LaunchIcon, RefreshIcon } from '@sanity/icons';
 import { useHasActiveDeployments } from '../integrations/hooks/vercel';
 import styled from 'styled-components';
+import { BLOG_PREVIEW_REBUILD_EVENT_NAME } from '../constants';
 
 const PRODUCTION_URL = 'https://focusreactive.com';
 const MAIN_PREVIEW_URL = 'https://fr-11ty-migration-front.vercel.app';
@@ -62,8 +63,6 @@ const getProductionUrl = (document: Partial<SanityDocument>) => {
 const BuildingStatus = styled.div`
   font-size: 12px;
   padding: 4px 16px;
-  border: 1px solid black;
-  border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +73,7 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
   const iframe = useRef<HTMLIFrameElement>(null);
   const [previewUrl, setPreviewUrl] = useState('');
   const [id, setId] = useState(1);
-  const { hasActiveDeployments } = useHasActiveDeployments();
+  const { hasActiveDeployments, checkActiveDeployments } = useHasActiveDeployments();
 
   const { displayed: currentDocument } = document;
 
@@ -92,6 +91,7 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
 
   useEffect(() => {
     setPreviewUrl(getPreviewUrl(currentDocument));
+    window.addEventListener(BLOG_PREVIEW_REBUILD_EVENT_NAME, checkActiveDeployments);
   }, []);
 
   if (!previewUrl)
@@ -121,7 +121,7 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
                 </BuildingStatus>
               )}
 
-              <Button fontSize={[1]} icon={RefreshIcon} padding={2} text="Reload" onClick={reloadIframe} />
+              <Button fontSize={[1]} icon={RefreshIcon} padding={[2]} text="Reload" onClick={reloadIframe} />
 
               <Button
                 fontSize={[1]}
@@ -134,7 +134,7 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
 
               <Button
                 fontSize={[1]}
-                icon={LaunchIcon}
+                icon={EarthGlobeIcon}
                 padding={[2]}
                 text="Open FR"
                 tone="caution"

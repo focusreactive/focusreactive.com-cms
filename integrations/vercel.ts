@@ -1,3 +1,5 @@
+import { BLOG_PREVIEW_REBUILD_EVENT_NAME } from '../constants';
+
 export const env = {
   vercelRebuildWebhookUrl: process.env.SANITY_STUDIO_VERCEL_REBUILD_WEBHOOK_URL!,
   vercelToken: process.env.SANITY_STUDIO_VERCEL_TOKEN!,
@@ -101,6 +103,8 @@ export const rebuildPreview = async (): Promise<{ error: CustomError | null }> =
     if (response.error) {
       throw new Error(response.error.message);
     }
+
+    window.dispatchEvent(new Event(BLOG_PREVIEW_REBUILD_EVENT_NAME));
 
     return { error: null };
   } catch (error) {
