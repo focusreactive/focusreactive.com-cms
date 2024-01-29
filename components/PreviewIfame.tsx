@@ -92,6 +92,7 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
   const { hasActiveDeployments, checkActiveDeployments } = useHasActiveDeployments();
 
   const { displayed: currentDocument } = document;
+  const isPost = currentDocument._type === 'post';
 
   function reloadIframe() {
     if (!iframe?.current) return;
@@ -131,7 +132,7 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
             </Box>
 
             <Flex align="center" gap={1}>
-              {hasActiveDeployments && (
+              {isPost && hasActiveDeployments && (
                 <BuildingStatus>
                   <Spinner muted /> Building...
                 </BuildingStatus>
@@ -153,7 +154,7 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
                 icon={EarthGlobeIcon}
                 padding={[2]}
                 text="Open FR"
-                tone="caution"
+                tone="positive"
                 onClick={() => window.open(getProductionUrl(currentDocument))}
               />
             </Flex>
