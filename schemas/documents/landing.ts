@@ -527,6 +527,11 @@ const singleReview = getBlock('singleReview', {
 const contentColumns = getBlock('contentColumns', {
   fields: [
     {
+      name: 'topTitle',
+      title: 'topTitle',
+      type: 'string',
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string',
