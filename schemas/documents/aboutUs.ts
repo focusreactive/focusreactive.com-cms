@@ -1,9 +1,15 @@
+import { CaseIcon } from '@sanity/icons';
+
 import { textSizeControl } from '../common';
 
 const aboutUsPage = {
   name: 'aboutUsPage',
   title: 'About Us Page',
   type: 'document',
+  options: {
+    singleton: true,
+  },
+  icon: CaseIcon,
   preview: { prepare: () => ({ title: 'About Us' }) },
   fields: [
     {

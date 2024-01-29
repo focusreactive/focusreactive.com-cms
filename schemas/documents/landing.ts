@@ -1,4 +1,5 @@
 import { defineType, FieldDefinition } from 'sanity';
+import { RocketIcon } from '@sanity/icons';
 import { textSizeControl } from '../common';
 
 const sectionConfig = {
@@ -818,6 +819,7 @@ const faq = getBlock('faq', {
 const landingPage = defineType({
   name: 'landingPage',
   type: 'document',
+  icon: RocketIcon,
   fieldsets: [
     {
       name: 'seo',

@@ -1,8 +1,10 @@
+import { UsersIcon } from '@sanity/icons';
+
 const author = {
   name: 'author',
   title: 'Author',
   type: 'document',
-
+  icon: UsersIcon,
   fields: [
     {
       name: 'name',

@@ -1,4 +1,5 @@
 import { defineType } from 'sanity';
+import { HomeIcon } from '@sanity/icons';
 
 const product = {
   name: 'product',
@@ -446,7 +447,11 @@ export const mainPage = defineType({
   name: 'mainPage',
   title: 'Main Page',
   type: 'document',
+  options: {
+    singleton: true,
+  },
   preview: { prepare: () => ({ title: 'Home Page' }) },
+  icon: HomeIcon,
   fieldsets: [
     {
       name: 'seo',
