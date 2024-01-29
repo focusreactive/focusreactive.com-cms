@@ -171,7 +171,7 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
               key={id}
               ref={iframe}
               title="preview"
-              style={{ width: '100%', height: `100%`, maxHeight: `100%`, border: 0 }}
+              style={{ width: '100%', height: `100%`, maxHeight: `100%`, border: 0, backgroundColor: '#fff' }}
               src={previewUrl}
               referrerPolicy="origin-when-cross-origin"
             />
