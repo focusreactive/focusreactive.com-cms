@@ -56,7 +56,23 @@ const getBlogPagePreviewUrl = (document: Partial<SanityDocument>) => {
 };
 
 const getProductionUrl = (document: Partial<SanityDocument>) => {
-  const slug = document?.slug?.current || document?.path?.current;
+  let slug = document?.slug?.current || document?.path?.current;
+
+  switch (document._type) {
+    case 'mainPage': {
+      slug = '';
+      break;
+    }
+    case 'aboutUsPage': {
+      slug = 'about';
+      break;
+    }
+    case 'ourWorkPage': {
+      slug = 'our-work';
+      break;
+    }
+  }
+
   return `${PRODUCTION_URL}/${slug}`;
 };
 
