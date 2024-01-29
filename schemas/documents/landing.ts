@@ -23,6 +23,25 @@ const sectionConfigField = {
   group: 'sectionConfigGroup',
 };
 
+const themeConfig = {
+  name: 'themeConfig',
+  type: 'object',
+  fields: [
+    {
+      name: 'theme',
+      title: 'Custom theme',
+      description: '(dark && light)',
+      type: 'boolean',
+    },
+  ],
+};
+
+const themeConfigField = {
+  name: 'themeConfig',
+  type: 'themeConfig',
+  group: 'themeConfigGroup',
+};
+
 const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
   defineType({
     name,
@@ -31,6 +50,10 @@ const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
       {
         name: 'sectionConfigGroup',
         title: 'Section Config',
+      },
+      {
+        name: 'themeConfigGroup',
+        title: 'Theme Config',
       },
     ],
     fields: [
@@ -816,6 +839,79 @@ const faq = getBlock('faq', {
   ],
 });
 
+const pricesItem = getBlock('pricesItem', {
+  fields: [
+    {
+      name: 'title',
+      title: 'title',
+      type: 'string',
+    },
+    {
+      name: 'discount',
+      title: 'discount',
+      type: 'string',
+    },
+    {
+      name: 'price',
+      title: 'price',
+      type: 'string',
+    },
+
+    {
+      name: 'period',
+      title: 'period',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'day', value: 'day' },
+          { title: 'month', value: 'month' },
+          { title: 'year', value: 'year' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+    },
+    {
+      name: 'description',
+      title: 'description',
+      type: 'string',
+    },
+    {
+      name: 'btnText',
+      title: 'button text',
+      type: 'string',
+    },
+    {
+      name: 'richText',
+      title: 'text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
+  ],
+});
+
+const prices = getBlock('prices', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+
+    {
+      name: 'items',
+      type: 'array',
+      of: [{ type: 'pricesItem' }],
+    },
+    themeConfigField,
+    sectionConfigField,
+  ],
+});
+
 const landingPage = defineType({
   name: 'landingPage',
   type: 'document',
@@ -878,6 +974,7 @@ const landingPage = defineType({
         { type: 'teamV2' },
         { type: 'introList' },
         { type: 'faq' },
+        { type: 'prices' },
       ],
     },
     {
@@ -898,6 +995,7 @@ const landingPage = defineType({
 export default [
   landingPage,
   sectionConfig,
+  themeConfig,
   hero,
   heroDark,
   heroCaseStudy,
@@ -931,4 +1029,6 @@ export default [
   projectDetailsList,
   faq,
   faqItem,
+  prices,
+  pricesItem,
 ];
