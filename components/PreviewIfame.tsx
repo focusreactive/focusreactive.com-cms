@@ -109,6 +109,10 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
   useEffect(() => {
     setPreviewUrl(getPreviewUrl(currentDocument));
     window.addEventListener(BLOG_PREVIEW_REBUILD_EVENT_NAME, checkActiveDeployments);
+
+    return () => {
+      window.removeEventListener(BLOG_PREVIEW_REBUILD_EVENT_NAME, checkActiveDeployments);
+    };
   }, []);
 
   if (!previewUrl)
