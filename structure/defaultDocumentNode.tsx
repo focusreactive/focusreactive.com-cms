@@ -1,5 +1,5 @@
 import { DefaultDocumentNodeResolver } from 'sanity/desk';
-import { PreviewIframe } from './components/PreviewIfame';
+import { PreviewIframe } from '../components/PreviewIfame';
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaType }) => {
   const documentsWithPreview = ['landingPage', 'aboutUsPage', 'mainPage', 'ourWorkPage', 'post'];
