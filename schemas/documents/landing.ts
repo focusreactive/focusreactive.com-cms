@@ -861,21 +861,6 @@ const pricesItem = getBlock('pricesItem', {
       title: 'price',
       type: 'string',
     },
-
-    {
-      name: 'period',
-      title: 'period',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'day', value: 'day' },
-          { title: 'month', value: 'month' },
-          { title: 'year', value: 'year' },
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-    },
     {
       name: 'description',
       title: 'description',
