@@ -14,6 +14,10 @@ const sectionConfig = {
       name: 'disableBottomPadding',
       type: 'boolean',
     },
+    {
+      name: 'darkMode',
+      type: 'boolean',
+    },
   ],
 };
 
