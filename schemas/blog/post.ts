@@ -1,4 +1,5 @@
-import {BillIcon} from '@sanity/icons'
+import { BillIcon } from '@sanity/icons';
+import { slugValidation } from '../validation';
 
 const post = {
   name: 'post',
@@ -20,7 +21,7 @@ const post = {
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().custom(slugValidation),
     },
     {
       name: 'description',

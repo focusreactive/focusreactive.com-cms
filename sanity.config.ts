@@ -15,7 +15,7 @@ export default defineConfig({
   title: 'FR Website',
 
   projectId: 'vftxng62',
-  dataset: 'production',
+  dataset: 'development',
 
   plugins: [
     deskTool({
