@@ -1,6 +1,7 @@
 import { defineType, FieldDefinition } from 'sanity';
 import { RocketIcon } from '@sanity/icons';
 import { textSizeControl } from '../common';
+import { slugValidation } from '../validation';
 
 const sectionConfig = {
   name: 'sectionConfig',
@@ -936,7 +937,7 @@ const landingPage = defineType({
       name: 'path',
       title: 'Page Path',
       type: 'slug',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().custom(slugValidation),
       options: {
         source: 'title',
       },
