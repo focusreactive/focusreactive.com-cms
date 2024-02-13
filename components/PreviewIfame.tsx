@@ -119,6 +119,11 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (hasActiveDeployments) return;
+    reloadIframe();
+  }, [hasActiveDeployments]);
+
   if (!previewUrl)
     return (
       <ThemeProvider>
