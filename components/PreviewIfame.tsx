@@ -88,15 +88,19 @@ const BuildingStatus = styled.div`
 export const PreviewIframe: UserViewComponent = ({ document }) => {
   const iframe = useRef<HTMLIFrameElement>(null);
   const [previewUrl, setPreviewUrl] = useState('');
-  const [id, setId] = useState(1);
   const { hasActiveDeployments, checkActiveDeployments } = useHasActiveDeployments();
 
   const { displayed: currentDocument } = document;
   const isPost = currentDocument._type === 'post';
 
   function reloadIframe() {
-    if (!iframe?.current) return;
-    setId(id + 1);
+    const iframeNode = iframe.current;
+
+    if (!iframeNode || !iframeNode.contentWindow) return null;
+
+    const iframeWindow = iframeNode.contentWindow;
+
+    iframeWindow.postMessage('reload()', isPost ? BLOG_PREVIEW_URL : MAIN_PREVIEW_URL);
   }
   const debouncedChangeHandler = useCallback(debounce(reloadIframe, 500), []);
 
@@ -168,7 +172,6 @@ export const PreviewIframe: UserViewComponent = ({ document }) => {
         <Card tone="transparent" padding={0} style={{ height: `100%` }}>
           <Flex align="center" justify="center" style={{ height: `100%` }}>
             <iframe
-              key={id}
               ref={iframe}
               title="preview"
               style={{ width: '100%', height: `100%`, maxHeight: `100%`, border: 0, backgroundColor: '#fff' }}
