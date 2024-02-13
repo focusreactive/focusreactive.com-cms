@@ -300,6 +300,12 @@ const teasersItem = getBlock('teasersItem', {
       type: 'string',
     },
     {
+      name: 'richText',
+      title: 'Text',
+      type: 'array',
+      of: [{type: 'block'}]
+    },
+    {
       name: 'buttonText',
       title: 'Button Text',
       type: 'string',
@@ -325,6 +331,7 @@ const teasers = getBlock('teasers', {
       type: 'array',
       of: [{ type: 'teasersItem' }],
     },
+    sectionConfigField,
   ],
 });
 
