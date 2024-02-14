@@ -2,7 +2,6 @@ import { defineType, FieldDefinition } from 'sanity';
 import { RocketIcon } from '@sanity/icons';
 import { textSizeControl } from '../common';
 import { slugValidation } from '../validation';
-import { InitialValueProperty } from '@sanity/types';
 
 const sectionConfig = {
   name: 'sectionConfig',
