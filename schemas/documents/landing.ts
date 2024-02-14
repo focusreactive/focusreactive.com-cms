@@ -2,6 +2,7 @@ import { defineType, FieldDefinition } from 'sanity';
 import { RocketIcon } from '@sanity/icons';
 import { textSizeControl } from '../common';
 import { slugValidation } from '../validation';
+import { InitialValueProperty } from '@sanity/types';
 
 const sectionConfig = {
   name: 'sectionConfig',
@@ -303,7 +304,7 @@ const teasersItem = getBlock('teasersItem', {
       name: 'richText',
       title: 'Text',
       type: 'array',
-      of: [{type: 'block'}]
+      of: [{ type: 'block' }],
     },
     {
       name: 'buttonText',
@@ -845,6 +846,11 @@ const faq = getBlock('faq', {
       name: 'title',
       title: 'Title',
       type: 'string',
+    },
+    {
+      name: 'isFaqSchemaDisabled',
+      title: 'Disable FAQ Schema',
+      type: 'boolean',
     },
     {
       name: 'items',
