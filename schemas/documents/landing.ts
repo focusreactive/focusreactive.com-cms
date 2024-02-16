@@ -28,25 +28,6 @@ const sectionConfigField = {
   group: 'sectionConfigGroup',
 };
 
-const themeConfig = {
-  name: 'themeConfig',
-  type: 'object',
-  fields: [
-    {
-      name: 'theme',
-      title: 'Custom theme',
-      description: '(dark && light)',
-      type: 'boolean',
-    },
-  ],
-};
-
-const themeConfigField = {
-  name: 'themeConfig',
-  type: 'themeConfig',
-  group: 'themeConfigGroup',
-};
-
 const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
   defineType({
     name,
@@ -55,10 +36,6 @@ const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
       {
         name: 'sectionConfigGroup',
         title: 'Section Config',
-      },
-      {
-        name: 'themeConfigGroup',
-        title: 'Theme Config',
       },
     ],
     fields: [
@@ -303,7 +280,7 @@ const teasersItem = getBlock('teasersItem', {
       name: 'richText',
       title: 'Text',
       type: 'array',
-      of: [{type: 'block'}]
+      of: [{ type: 'block' }],
     },
     {
       name: 'buttonText',
@@ -909,7 +886,6 @@ const prices = getBlock('prices', {
       type: 'array',
       of: [{ type: 'pricesItem' }],
     },
-    themeConfigField,
     sectionConfigField,
   ],
 });
@@ -997,7 +973,6 @@ const landingPage = defineType({
 export default [
   landingPage,
   sectionConfig,
-  themeConfig,
   hero,
   heroDark,
   heroCaseStudy,
