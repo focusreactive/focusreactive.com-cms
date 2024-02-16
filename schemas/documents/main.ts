@@ -55,28 +55,6 @@ const products = {
   ],
 };
 
-const whatWeDoItem = {
-  name: 'whatWeDoItem',
-  type: 'object',
-  fields: [
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    },
-    {
-      name: 'description',
-      title: 'Description',
-      type: 'string',
-    },
-    {
-      name: 'link',
-      title: 'Link',
-      type: 'string',
-    },
-  ],
-};
-
 const ourClients = {
   name: 'ourClients',
   type: 'object',
@@ -122,8 +100,114 @@ const ourClientsItem = {
   ],
 };
 
-const whatWeDo = {
-  name: 'whatWeDo',
+const expertiseTechnologiesItems = {
+  name: 'expertiseTechnologiesItems',
+  type: 'object',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'string',
+    },
+    {
+      name: 'icon',
+      title: 'Icon',
+      type: 'image',
+    },
+  ],
+};
+
+const expertiseTechnologies = {
+  name: 'expertiseTechnologies',
+  type: 'object',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'items',
+      title: 'Technologies',
+      type: 'array',
+      of: [{ type: 'expertiseTechnologiesItems' }],
+    },
+  ],
+};
+
+const expertiseNavItem = {
+  name: 'expertiseNavItem',
+  type: 'object',
+  fields: [
+    {
+      name: 'linkText',
+      title: 'Link Text',
+      type: 'string',
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'string',
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+    },
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'richText',
+      title: 'Text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
+    {
+      name: 'technologies',
+      title: 'Technologies',
+      type: 'array',
+      of: [{ type: 'expertiseTechnologies' }],
+    },
+  ],
+};
+
+const expertiseItem = {
+  name: 'expertiseItem',
+  type: 'object',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'text',
+      title: 'Text',
+      type: 'string',
+    },
+    {
+      name: 'items',
+      title: 'Items',
+      type: 'array',
+      of: [{ type: 'expertiseNavItem' }],
+    },
+  ],
+};
+
+const expertise = {
+  name: 'expertise',
   type: 'object',
   fields: [
     {
@@ -135,18 +219,7 @@ const whatWeDo = {
       name: 'items',
       title: 'Items',
       type: 'array',
-      of: [{ type: 'whatWeDoItem' }],
-    },
-    {
-      name: 'buttonText',
-      title: 'Button Text',
-      type: 'string',
-    },
-    {
-      name: 'buttonUrl',
-      title: 'Button Url',
-      type: 'url',
-      validation: (Rule) => Rule.required(),
+      of: [{ type: 'expertiseItem' }],
     },
   ],
 };
@@ -493,9 +566,9 @@ export const mainPage = defineType({
       type: 'ourClients',
     },
     {
-      name: 'whatWeDo',
-      title: 'What We Do Section',
-      type: 'whatWeDo',
+      name: 'expertise',
+      title: 'Our expertise Section',
+      type: 'expertise',
     },
     {
       name: 'techs',
@@ -533,8 +606,11 @@ export default [
   product,
   ourClients,
   ourClientsItem,
-  whatWeDo,
-  whatWeDoItem,
+  expertise,
+  expertiseItem,
+  expertiseNavItem,
+  expertiseTechnologies,
+  expertiseTechnologiesItems,
   events,
   event,
   team,
