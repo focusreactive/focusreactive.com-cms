@@ -78,7 +78,9 @@ const buildDocumentType: BuildDocumentType = async (S, context, typeSchema) => {
     const documents = await client.fetch<{ _id: string }[], { type: string }>('* [_type == $type]{_id}', {
       type: typeSchema.name,
     });
-    if (documents.length > 1) {
+    const publishedIds = documents.map((d) => d._id.replace(/^drafts\./, ''));
+    const uniqueDocuments = new Set(publishedIds);
+    if (uniqueDocuments.size > 1) {
       throw new Error(`Singleton document of type ${typeSchema.title} [${typeSchema.name}] has multiple instances!`);
     }
     // TODO: typescript don't allow me to do this :)
