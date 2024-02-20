@@ -165,7 +165,7 @@ const expertiseNavItem = {
       type: 'string',
     },
     {
-      name: 'Titlelink',
+      name: 'titleLink',
       title: 'Title Link',
       type: 'string',
     },
