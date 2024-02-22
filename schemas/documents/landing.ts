@@ -480,6 +480,7 @@ const counters = getBlock('counters', {
       title: 'Article Text',
       type: 'string',
     },
+    sectionConfigField,
   ],
 });
 
@@ -588,6 +589,7 @@ const technologies = getBlock('technologies', {
       type: 'array',
       of: [{ type: 'technologiesItem' }],
     },
+    sectionConfigField,
   ],
 });
 
@@ -634,6 +636,7 @@ const techStack = getBlock('techStack', {
       of: [{ type: 'techStackItem' }],
       validation: (rule) => rule.required(),
     },
+    sectionConfigField,
   ],
 });
 
@@ -863,6 +866,11 @@ const pricesItem = getBlock('pricesItem', {
     {
       name: 'btnText',
       title: 'button text',
+      type: 'string',
+    },
+    {
+      name: 'subtitle',
+      title: 'subtitle',
       type: 'string',
     },
     {
