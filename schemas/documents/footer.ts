@@ -38,6 +38,11 @@ const footer = {
                       title: 'Link',
                       type: 'url',
                     },
+                    {
+                      name: 'openInNewTab',
+                      title: 'openInNewTab',
+                      type: 'boolean',
+                    },
                   ],
                 },
               ],
