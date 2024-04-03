@@ -129,6 +129,12 @@ const hero = getBlock('hero', {
       type: 'boolean',
     },
     {
+      name: 'isCustomBgImage',
+      title: 'background picture on the right',
+      description: '(cover && right)',
+      type: 'boolean',
+    },
+    {
       name: 'image',
       title: 'Background Image',
       type: 'image',
