@@ -41,6 +41,10 @@ const getMainPagePreviewUrl = (document: Partial<SanityDocument>) => {
       previewSlug = 'preview?slug=our-work-preview';
       break;
     }
+    case 'portfolioPage': {
+      previewSlug = 'preview?slug=portfolio-preview';
+      break;
+    }
     default: {
       previewSlug = 'default-preview';
       break;
@@ -69,6 +73,10 @@ const getProductionUrl = (document: Partial<SanityDocument>) => {
     }
     case 'ourWorkPage': {
       slug = 'our-work';
+      break;
+    }
+    case 'portfolioPage': {
+      slug = 'portfolio';
       break;
     }
   }

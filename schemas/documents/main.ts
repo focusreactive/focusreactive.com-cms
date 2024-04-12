@@ -1,6 +1,31 @@
 import { defineType } from 'sanity';
 import { HomeIcon } from '@sanity/icons';
 
+const mainSectionConfig = {
+  name: 'mainSectionConfig',
+  type: 'object',
+  fields: [
+    {
+      name: 'disableTopPadding',
+      type: 'boolean',
+    },
+    {
+      name: 'disableBottomPadding',
+      type: 'boolean',
+    },
+    {
+      name: 'darkMode',
+      type: 'boolean',
+    },
+  ],
+};
+
+const sectionConfigField = {
+  name: 'mainSectionConfig',
+  type: 'mainSectionConfig',
+  group: 'mainSectionConfigGroup',
+};
+
 const product = {
   name: 'product',
   type: 'object',
@@ -438,6 +463,12 @@ const team = {
 const emailForm = {
   name: 'emailForm',
   type: 'object',
+  groups: [
+    {
+      name: 'mainSectionConfigGroup',
+      title: 'Section Config',
+    },
+  ],
   fields: [
     {
       name: 'titleLines',
@@ -450,6 +481,8 @@ const emailForm = {
       title: 'SubTitle',
       type: 'string',
     },
+
+    sectionConfigField,
   ],
 };
 
@@ -606,6 +639,7 @@ export const mainPage = defineType({
 });
 
 export default [
+  mainSectionConfig,
   mainPage,
   products,
   product,
