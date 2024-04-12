@@ -30,7 +30,7 @@ type Sections = {
   settings: SectionSettings;
 };
 
-const marketingTypes = ['mainPage', 'landingPage', 'aboutUsPage', 'ourWorkPage'];
+const marketingTypes = ['mainPage', 'landingPage', 'aboutUsPage', 'ourWorkPage', 'portfolioPage'];
 const blogTypes = ['post', 'author', 'tag'];
 
 const sections: Sections = {
@@ -78,6 +78,7 @@ const buildDocumentType: BuildDocumentType = async (S, context, typeSchema) => {
     const documents = await client.fetch<{ _id: string }[], { type: string }>('* [_type == $type]{_id}', {
       type: typeSchema.name,
     });
+
     const publishedIds = documents.map((d) => d._id.replace(/^drafts\./, ''));
     const uniqueDocuments = new Set(publishedIds);
     if (uniqueDocuments.size > 1) {
