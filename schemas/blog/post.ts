@@ -79,6 +79,29 @@ const post = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'technologies',
+      title: 'Technologies',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+        },
+        {
+          name: 'technologies',
+          title: 'Technologies',
+          type: 'array',
+          of: [
+            {
+              type: 'reference',
+              to: [{ type: 'technology' }],
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: 'images',
       title: 'Images',
       type: 'array',
