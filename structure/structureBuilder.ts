@@ -31,7 +31,7 @@ type Sections = {
 };
 
 const marketingTypes = ['mainPage', 'landingPage', 'aboutUsPage', 'ourWorkPage', 'portfolioPage'];
-const blogTypes = ['post', 'author', 'tag'];
+const blogTypes = ['post', 'author', 'tag', 'technology'];
 
 const sections: Sections = {
   marketing: {
