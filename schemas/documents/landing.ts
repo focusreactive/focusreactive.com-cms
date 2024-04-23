@@ -3,7 +3,7 @@ import { RocketIcon } from '@sanity/icons';
 import { textSizeControl } from '../common';
 import { slugValidation } from '../validation';
 
-const sectionConfig = {
+export const sectionConfig = {
   name: 'sectionConfig',
   type: 'object',
   fields: [
@@ -22,13 +22,13 @@ const sectionConfig = {
   ],
 };
 
-const sectionConfigField = {
+export const sectionConfigField = {
   name: 'sectionConfig',
   type: 'sectionConfig',
   group: 'sectionConfigGroup',
 };
 
-const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
+export const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
   defineType({
     name,
     type: 'object',
