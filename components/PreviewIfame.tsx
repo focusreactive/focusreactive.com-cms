@@ -45,6 +45,10 @@ const getMainPagePreviewUrl = (document: Partial<SanityDocument>) => {
       previewSlug = 'preview?slug=portfolio-preview';
       break;
     }
+    case 'cmsKitPage': {
+      previewSlug = 'preview?slug=cms-kit-preview';
+      break;
+    }
     default: {
       previewSlug = 'default-preview';
       break;
@@ -77,6 +81,10 @@ const getProductionUrl = (document: Partial<SanityDocument>) => {
     }
     case 'portfolioPage': {
       slug = 'portfolio';
+      break;
+    }
+    case 'cmsKitPage': {
+      slug = 'cms-kit';
       break;
     }
   }

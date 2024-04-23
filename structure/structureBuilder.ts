@@ -30,7 +30,7 @@ type Sections = {
   settings: SectionSettings;
 };
 
-const marketingTypes = ['mainPage', 'landingPage', 'aboutUsPage', 'ourWorkPage', 'portfolioPage'];
+const marketingTypes = ['mainPage', 'landingPage', 'aboutUsPage', 'ourWorkPage', 'portfolioPage', 'cmsKitPage'];
 const blogTypes = ['post', 'author', 'tag', 'technology'];
 
 const sections: Sections = {
