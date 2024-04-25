@@ -6,6 +6,17 @@ const post = {
   title: 'Blog Posts',
   type: 'document',
   icon: BillIcon,
+  fieldsets: [
+    {
+      name: 'seoCanonical',
+      title: 'SEO canonical',
+      description: 'Leave empty to use the page URL itself as the canonical URL.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -55,6 +66,12 @@ const post = {
       validation: (Rule) => Rule.required(),
     },
     {
+      fieldset: 'seoCanonical',
+      name: 'seoCanonical',
+      title: 'Canonical',
+      type: 'string',
+    },
+    {
       name: 'authors',
       title: 'Authors',
       type: 'array',
@@ -78,6 +95,7 @@ const post = {
       ],
       validation: (Rule) => Rule.required(),
     },
+
     {
       name: 'technologies',
       title: 'Technologies',
