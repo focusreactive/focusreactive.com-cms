@@ -58,6 +58,16 @@ const coreSdkItems = getBlock('coreSdkItems', {
       type: 'string',
     },
     {
+      name: 'text',
+      title: 'Text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
+    {
       name: 'link',
       title: 'Link',
       type: 'string',
