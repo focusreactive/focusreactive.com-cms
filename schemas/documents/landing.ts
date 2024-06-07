@@ -908,6 +908,51 @@ const prices = getBlock('prices', {
   ],
 });
 
+const gridColumn = getBlock('gridColumn', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title ',
+      type: 'string',
+      hidden: ({ parent, value }) => parent?.image,
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'string',
+      hidden: ({ parent, value }) => parent?.image,
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+      hidden: ({ parent, value }) => parent?.image,
+    },
+    {
+      name: 'image',
+      title: 'Background Image',
+      type: 'image',
+    },
+  ],
+});
+
+const gridColumns = getBlock('gridColumns', {
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'items',
+      title: 'Items',
+      type: 'array',
+      of: [{ type: 'gridColumn' }],
+    },
+    sectionConfigField,
+  ],
+});
+
 const landingPage = defineType({
   name: 'landingPage',
   type: 'document',
@@ -980,6 +1025,7 @@ const landingPage = defineType({
         { type: 'introList' },
         { type: 'faq' },
         { type: 'prices' },
+        { type: 'gridColumns' },
       ],
     },
     {
@@ -1035,4 +1081,6 @@ export default [
   faqItem,
   prices,
   pricesItem,
+  gridColumns,
+  gridColumn,
 ];
