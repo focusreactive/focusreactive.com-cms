@@ -224,7 +224,6 @@ const projectDetailsList = getBlock('projectDetailsList', {
     },
   ],
 });
-
 const aboutText = getBlock('aboutText', {
   fields: [
     {
@@ -952,6 +951,15 @@ const landingPage = defineType({
         { type: 'hero' },
         { type: 'heroDark' },
         { type: 'heroCaseStudy' },
+        { type: 'heroWithVideo' },
+        { type: 'ourMission' },
+        { type: 'coreSdk' },
+        { type: 'pyramid' },
+        { type: 'ctaBlock' },
+        { type: 'quoteBlock' },
+        { type: 'formBlock' },
+        { type: 'scenarios' },
+        { type: 'painsGains' },
         { type: 'aboutText' },
         { type: 'teasers' },
         { type: 'reviews' },
