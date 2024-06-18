@@ -330,6 +330,7 @@ const cmsKitPage = defineType({
         { type: 'singleReview' },
         { type: 'contentColumns' },
         { type: 'technologies' },
+        { type: 'gridColumns' },
       ],
     },
     {
