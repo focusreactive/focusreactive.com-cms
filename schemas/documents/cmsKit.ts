@@ -205,7 +205,35 @@ const formBlock = getBlock('formBlock', {
       title: 'Button text',
       type: 'string',
     },
+    {
+      name: 'endpoint',
+      title: 'Endpoint',
+      type: 'string',
+      group: 'requestSettings',
+    },
+    {
+      name: 'body',
+      title: 'Optional Body',
+      type: 'string',
+      group: 'requestSettings',
+    },
+    {
+      name: 'method',
+      title: 'Method',
+      type: 'string',
+      options: {
+        list: ['POST', 'GET'],
+      },
+      initialValue: 'POST',
+      group: 'requestSettings',
+    },
     sectionConfigField,
+  ],
+  groups: [
+    {
+      name: 'requestSettings',
+      title: 'Request Settings',
+    },
   ],
 });
 

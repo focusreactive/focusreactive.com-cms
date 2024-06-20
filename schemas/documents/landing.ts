@@ -28,7 +28,7 @@ export const sectionConfigField = {
   group: 'sectionConfigGroup',
 };
 
-export const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }) =>
+export const getBlock = (name: string, { fields, groups }: { fields: FieldDefinition[]; groups: object }) =>
   defineType({
     name,
     type: 'object',
@@ -37,6 +37,7 @@ export const getBlock = (name: string, { fields }: { fields: FieldDefinition[] }
         name: 'sectionConfigGroup',
         title: 'Section Config',
       },
+      ...groups,
     ],
     fields: [
       {
