@@ -214,7 +214,7 @@ const formBlock = getBlock('formBlock', {
     {
       name: 'body',
       title: 'Optional Body',
-      type: 'string',
+      type: 'text',
       group: 'requestSettings',
     },
     {
