@@ -1,4 +1,4 @@
-import { defineType, FieldDefinition } from 'sanity';
+import { defineType, FieldDefinition, FieldGroupDefinition } from 'sanity';
 import { RocketIcon } from '@sanity/icons';
 import { textSizeControl } from '../common';
 import { slugValidation } from '../validation';
@@ -28,7 +28,7 @@ export const sectionConfigField = {
   group: 'sectionConfigGroup',
 };
 
-export const getBlock = (name: string, { fields, groups }: { fields: FieldDefinition[]; groups?: FieldGroupDefinition[] }) =>
+export const getBlock = (name: string, { fields, groups, preview }: { fields: FieldDefinition[]; groups?: FieldGroupDefinition[], preview?: {} }) =>
   defineType({
     name,
     type: 'object',
@@ -48,7 +48,7 @@ export const getBlock = (name: string, { fields, groups }: { fields: FieldDefini
       },
       ...fields,
     ],
-    preview: {
+    preview: preview || {
       select: { title: 'title', documentTitle: 'documentTitle' },
       prepare({ title, documentTitle }) {
         return { subtitle: name, title: documentTitle || title };
@@ -934,8 +934,13 @@ const gridColumn = getBlock('gridColumn', {
       hidden: ({ parent }) => parent?.image ? true : false,
     },
     {
-      name: 'background',
+      name: 'backgroundColor',
       title: 'Background Color',
+      type: 'string',
+    },
+    {
+      name: 'hoverColor',
+      title: 'Hover Color',
       type: 'string',
     },
     {
