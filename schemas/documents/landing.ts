@@ -28,7 +28,7 @@ export const sectionConfigField = {
   group: 'sectionConfigGroup',
 };
 
-export const getBlock = (name: string, { fields, groups }: { fields: FieldDefinition[]; groups?: object[] }) =>
+export const getBlock = (name: string, { fields, groups }: { fields: FieldDefinition[]; groups?: FieldGroupDefinition[] }) =>
   defineType({
     name,
     type: 'object',
@@ -912,28 +912,43 @@ const prices = getBlock('prices', {
 const gridColumn = getBlock('gridColumn', {
   fields: [
     {
-      name: 'title',
-      title: 'Title ',
-      type: 'string',
-      hidden: ({ parent, value }) => parent?.image,
-    },
-    {
       name: 'link',
       title: 'Link',
       type: 'string',
-      hidden: ({ parent, value }) => parent?.image,
-    },
-    {
-      name: 'description',
-      title: 'Description',
-      type: 'string',
-      hidden: ({ parent, value }) => parent?.image,
     },
     {
       name: 'image',
       title: 'Background Image',
       type: 'image',
     },
+    {
+      name: 'title',
+      title: 'Title ',
+      type: 'string',
+      hidden: ({ parent }) => parent?.image ? true : false,
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+      hidden: ({ parent }) => parent?.image ? true : false,
+    },
+    {
+      name: 'background',
+      title: 'Background Color',
+      type: 'string',
+    },
+    {
+      name: 'imagePosition',
+      title: 'Image Position',
+      type: 'string',
+      options: {
+        list: ['cover', 'contain']
+      },
+      initialValue: 'cover',
+      hidden: ({ parent }) => parent?.image ? false : true,
+    },
+
   ],
 });
 
