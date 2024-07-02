@@ -89,13 +89,18 @@ const coreSdk = getBlock('coreSdk', {
       type: 'string',
     },
     {
-      name: 'titleLink',
-      title: 'Title link',
+      name: 'titleInCircle',
+      title: 'Title in circle',
       type: 'string',
     },
     {
-      name: 'link',
-      title: 'Github link',
+      name: 'npmTitle',
+      title: 'Npm title',
+      type: 'string',
+    },
+    {
+      name: 'npmLink',
+      title: 'Npm link',
       type: 'string',
     },
     {
@@ -131,6 +136,11 @@ const pyramidItems = getBlock('pyramidItems', {
 
 const pyramid = getBlock('pyramid', {
   fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
     {
       name: 'items',
       title: 'Items',
